@@ -138,6 +138,39 @@ $( "ul" ).on( "click", "li", function() {
 });
 ```
 
+Connecting Events to Run Only Once
+``` js
+// Switching handlers using the `.one()` method
+$( "p" ).one( "click", function() {
+    console.log( "You just clicked this for the first time!" );
+    $( this ).click(function() {
+        console.log( "You have clicked this before!" );
+    });
+});
+```
+
+Disconnecting Events
+
+``` js
+// Unbinding all click handlers on a selection
+$( "p" ).off( "click" );
+```
+
+``` js
+// Unbinding a particular click handler, using a reference to the function
+var foo = function() {
+    console.log( "foo" );
+};
+ 
+var bar = function() {
+    console.log( "bar" );
+};
+ 
+$( "p" ).on( "click", foo ).on( "click", bar );
+ 
+// foo will stay bound to the click event
+$( "p" ).off( "click", bar );
+```
 
 
 
@@ -146,3 +179,4 @@ $( "ul" ).on( "click", "li", function() {
 
 - [jQuery Event Basics](http://learn.jquery.com/events/event-basics/)
 - [Handling Events](http://learn.jquery.com/events/handling-events/)
+- [RegExp & JS](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp)
