@@ -1,0 +1,148 @@
+# jQuery Notes
+---
+
+## Event Basics
+
+- ```.preventDefault()```
+- The ```on``` method is useful for binding the same handler function to multiple events
+  - ```$.fn.click```, ```$.fn.focus```, ```$.fn.blur```, ```$.fn.change```
+  - shorthand for jQuery's ```$.fn.on``` method
+
+``` js
+// Event setup using a convenience method
+$( "p" ).click(function() {
+    console.log( "You clicked a paragraph!" );
+});
+```
+
+``` js
+// Equivalent event setup using the `$.fn.on` method
+$( "p" ).on( "click", function() {
+    console.log( "click" );
+});
+```
+
+
+Preventing a link from being followed
+``` js
+$( "a" ).click(function( eventObject ) {
+    var $this = $( this );
+    if ( $this.attr( "href" ).match( /evil/ ) ) {
+        eventObject.preventDefault();
+        $this.addClass( "evil" );
+    }
+});
+```
+
+
+Binding multiple events with different handlers
+``` js
+$( "p" ).on({
+    "click": function() { console.log( "clicked!" ); },
+    "mouseover": function() { console.log( "hovered!" ); }
+});
+```
+
+Tearing down all click handlers on a selection
+``` js
+$( "p" ).off( "click" );
+```
+
+
+Tearing down a particular click handler, using a reference to the function
+``` js
+var foo = function() { console.log( "foo" ); };
+var bar = function() { console.log( "bar" ); };
+ 
+$( "p" ).on( "click", foo ).on( "click", bar );
+$( "p" ).off( "click", bar ); // foo is still bound to the click e
+```
+
+Setting up events to run only once
+``` js
+// Switching handlers using the `$.fn.one` method
+$( "p" ).one( "click", firstClick );
+ 
+function firstClick() {
+    console.log( "You just clicked this for the first time!" );
+    // Now set up the new handler for subsequent clicks;
+    // omit this step if no further click responses are needed
+    $( this ).click( function() { console.log( "You have clicked this before!" ); } );
+}
+```
+
+Using $.fn.one to bind several events
+``` js
+$( "input[id]" ).one( "focus mouseover keydown", firstEvent);
+ 
+function firstEvent( eventObject ) {
+    console.log( "A " + eventObject.type + " event occurred for the first time on the input with id " + this.id );
+}
+```
+
+## Handling Events
+
+simple event binding
+``` js
+// When any <p> tag is clicked, we expect to see '<p> was clicked' in the console.
+$( "p" ).on( "click", function() {
+    console.log( "<p> was clicked" );
+});
+```
+
+many events, one event handler
+``` js
+// When a user focuses on or changes any input element, we expect a console message
+// bind to multiple events
+$( "div" ).on( "mouseenter mouseleave", function() {
+    console.log( "mouse hovered over or left a div" );
+});
+```
+
+many events, many events/handlers
+``` js
+$( "div" ).on({
+    mouseenter: function() {
+        console.log( "hovered over a div" );
+    },
+    mouseleave: function() {
+        console.log( "mouse left a div" );
+    },
+    click: function() {
+        console.log( "clicked on a div" );
+    }
+});
+```
+
+event object
+``` js
+$( "div" ).on( "click", function( event ) {
+    console.log( "event object:" );
+    console.dir( event );
+});
+```
+
+passing data to the event handler
+``` js
+$( "p" ).on( "click", {
+    foo: "bar"
+}, function( event ) {
+    console.log( "event data: " + event.data.foo + " (should be 'bar')" );
+});
+```
+
+binding events to elements that don't yet exist
+``` js
+$( "ul" ).on( "click", "li", function() {
+    console.log( "Something in a <ul> was clicked, and we detected that it was an <li> element." );
+});
+```
+
+
+
+
+
+## References
+
+- [jQuery Event Basics](http://learn.jquery.com/events/event-basics/)
+- [Handling Events](http://learn.jquery.com/events/handling-events/)
