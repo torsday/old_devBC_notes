@@ -176,6 +176,28 @@ $( "p" ).off( "click", bar );
 
 ## Form Validation
 
+#### HTML
+``` HTML
+<form name="sign_up" action="#" method="post">
+  <label for="email">Email</label>
+  <input type="text" name="email" />
+  <label for="password">Password</label>
+  <input type="password" name="password" />
+
+  <button type="submit">Sign Up</button>
+
+  <ul id="errors"></ul>
+</form>
+```
+
+#### CSS
+``` css
+ul#errors {
+  color: red;
+}
+```
+
+#### jQuery
 ``` js
 function validateSignIn () {
   $('#errors').html('');
