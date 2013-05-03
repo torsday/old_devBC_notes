@@ -174,6 +174,39 @@ $( "p" ).off( "click", bar );
 
 
 
+## Form Validation
+
+``` js
+function validateSignIn () {
+  $('#errors').html('');
+  password = $('input:password').val();
+  email = $('input[name=email]').val();
+ 
+  if (!/[A-Z]/.test(password)) {
+    $('#errors').append('<li>Password must have at least one capital letter</li>');
+  }    
+  if(password.length < 8) {
+    $('#errors').append('<li>Password must be at least 8 characters long</li>');
+  }
+  if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)) {
+    $('#errors').append('<li>Must be a valid email address</li>');
+  }
+  if (!/\d/.test(password)) {
+    $('#errors').append('<li>Password must have at least one numeric character (0-9)</li>');
+  } 
+}
+ 
+$(document).ready(function() {
+ $('button').on('click', function(e) {
+  e.preventDefault();
+  validateSignIn();
+  });
+});
+```
+
+
+
+
 
 ## References
 
