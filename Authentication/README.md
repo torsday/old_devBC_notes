@@ -226,4 +226,4 @@ $(document).ready(function () {
 
 
 ## References
--[phase_2_assessment_pt1](https://github.com/ctorstens/phase_2_assessment_pt1)
+- [phase_2_assessment_pt1](https://github.com/ctorstens/phase_2_assessment_pt1)

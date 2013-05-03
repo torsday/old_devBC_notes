@@ -208,7 +208,7 @@ function validateSignIn () {
   if(password.length < 8) {
     $('#errors').append('<li>Password must be at least 8 characters long</li>');
   }
-  if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)) {
+  if (!/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email)) {
     $('#errors').append('<li>Must be a valid email address</li>');
   }
   if (!/\d/.test(password)) {

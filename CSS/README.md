@@ -24,6 +24,14 @@
 
 
 
+## Scraps
+
+indicating what NOT to include
+``` css
+input:not([type=submit]):not([type=file]) {}
+```
+
+
 
 ##### References
 - [CSS Positioning: A Comprehensive Look](http://blog.teamtreehouse.com/css-positioning)
@@ -31,8 +39,15 @@
 
 
 ## References
+- Inspiration
+  - [AWWWARDS](http://www.awwwards.com/)
 - [the display declaration](http://www.quirksmode.org/css/display.html)
 - [The CSS Box Model](http://css-tricks.com/the-css-box-model/)
 - [Ooh, what a nice visualization](http://www.redmelon.net/tstme/box_model/)
 - [CSS Positioning: A Comprehensive Look](http://blog.teamtreehouse.com/css-positioning)
 - [Absolute, Relative, Fixed Positioning: How Do They Differ?](http://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/)
+- [The CSS Overflow Property](http://css-tricks.com/the-css-overflow-property/)
+- [Absolute Positioning Inside Relative Positioning](http://css-tricks.com/absolute-positioning-inside-relative-positioning/)
+- [CSS3 Previews](http://www.css3.info/preview/)
+- [MDN: <input>](https://developer.mozilla.org/en-US/docs/HTML/Element/input)
+- [Styling Texty Inputs Only](http://css-tricks.com/styling-texty-inputs-only/)
