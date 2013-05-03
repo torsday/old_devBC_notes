@@ -224,6 +224,57 @@ $(document).ready(function () {
 });
 ```
 
+## Form Validation 2.0
+
+#### HTML
+``` HTML
+<form name="sign_up" action="#" method="post">
+  <label for="email">Email</label>
+  <input type="text" name="email" />
+  <label for="password">Password</label>
+  <input type="password" name="password" />
+  <button type="submit">Sign Up</button>
+  <ul id="errors"></ul>
+</form>
+```
+
+#### CSS
+``` css
+ul#errors {
+  color: red;
+}
+```
+
+#### jQuery
+``` js
+function validateSignIn () {
+  $('#errors').html('');
+  password = $('input:password').val();
+  email = $('input[name=email]').val();
+ 
+  if (!/[A-Z]/.test(password)) {
+    $('#errors').append('<li>Password must have at least one capital letter</li>');
+  }    
+  if(password.length < 8) {
+    $('#errors').append('<li>Password must be at least 8 characters long</li>');
+  }
+  if (!/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email)) {
+    $('#errors').append('<li>Must be a valid email address</li>');
+  }
+  if (!/\d/.test(password)) {
+    $('#errors').append('<li>Password must have at least one numeric character (0-9)</li>');
+  } 
+}
+ 
+$(document).ready(function() {
+ $('button').on('click', function(e) {
+  e.preventDefault();
+  validateSignIn();
+  });
+});
+```
+
+
 
 ## References
 - [phase_2_assessment_pt1](https://github.com/ctorstens/phase_2_assessment_pt1)
