@@ -180,5 +180,6 @@ $( "p" ).off( "click", bar );
 ## References
 
 - [jQuery Event Basics](http://learn.jquery.com/events/event-basics/)
+- [jQuery Selectors](http://www.w3schools.com/jquery/jquery_ref_selectors.asp)
 - [Handling Events](http://learn.jquery.com/events/handling-events/)
 - [RegExp & JS](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/RegExp)
