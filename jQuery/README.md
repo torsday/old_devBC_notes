@@ -174,11 +174,11 @@ $( "p" ).off( "click", bar );
 
 
 
-## Namespaceing
+## Namespacing
 
 ``` js
 var TRKR = {};
-TRKR.exclaim = function () {...}
+TRKR.exclaim = function () {...};
 ```
 
 
