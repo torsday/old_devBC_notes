@@ -3,7 +3,6 @@
 
 ## Event Basics
 
-- ```.preventDefault()```
 - The ```on``` method is useful for binding the same handler function to multiple events
   - ```$.fn.click```, ```$.fn.focus```, ```$.fn.blur```, ```$.fn.change```
   - shorthand for jQuery's ```$.fn.on``` method
