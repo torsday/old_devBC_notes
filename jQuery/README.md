@@ -23,7 +23,7 @@ $( "p" ).on( "click", function() {
 ```
 
 
-Preventing a link from being followed
+Preventing a link from being followed with ```.preventDefault()```
 ``` js
 $( "a" ).click(function( eventObject ) {
     var $this = $( this );

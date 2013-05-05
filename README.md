@@ -20,3 +20,18 @@ Dev Bootcamp Notes
 - Week 10: ?
 - Week 11: ?
 - Week 12: ?
+
+
+
+
+## Orphaned References
+
+### Flickr Jr.
+- [Uploading file with Sinatra](http://www.wooptoot.com/file-upload-with-sinatra)
+- [Gems](https://github.com/jnicklas/carrierwave#using-minimagick)
+  - [CarrierWave](https://github.com/jnicklas/carrierwave)
+  - [MiniMagick](https://github.com/minimagick/minimagick)
+  - [Using MiniMagick](https://github.com/jnicklas/carrierwave#using-minimagick)
+- [jQuery: Sortable](http://jqueryui.com/sortable/#display-grid)
+- [Fully fluid, responsive CSS carousel](http://csswizardry.com/2011/10/fully-fluid-responsive-css-carousel/)
+- [HAML](http://haml.info/)
