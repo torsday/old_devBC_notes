@@ -14,4 +14,4 @@
 
 
 ## References
-- [How much sleep do we really need to work productively?][http://blog.bufferapp.com/how-much-sleep-do-we-really-need-to-work-productively]
+- [How much sleep do we really need to work productively?](http://blog.bufferapp.com/how-much-sleep-do-we-really-need-to-work-productively)
