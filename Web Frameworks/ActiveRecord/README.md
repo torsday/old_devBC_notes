@@ -121,7 +121,7 @@ end
 
 
 ## References
-- Active Record Guide
+- [RoR Guides](http://guides.rubyonrails.org/)
   - [Associations](http://guides.rubyonrails.org/association_basics.html)
   - [Migrations](http://guides.rubyonrails.org/migrations.html)
   - [Query Interface](http://guides.rubyonrails.org/active_record_querying.html)

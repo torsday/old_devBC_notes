@@ -1,6 +1,6 @@
 # GIT & GITHUB
 
-#### *Index*
+## *Index*
 
 >1. [New](https://gist.github.com/ctorstens/5375420#new)
 1. Setup
@@ -24,7 +24,7 @@
 3. [Troubleshooting]()
 1. [References](https://gist.github.com/ctorstens/5375420#references)
 
-### SETUP
+## SETUP
 ---
 - #### Creating a new, local-only repo
   1. create the repo in the root directory of your project
@@ -42,7 +42,7 @@
 
 
 
-### BASICS
+## BASICS
 ---
   * STATUS
   * ADD
@@ -53,7 +53,7 @@
 
 
 
-### Getting Around Git
+## Getting Around Git
 - Finding the current status of your project
 
          git status
@@ -95,7 +95,7 @@
  
 
 
-### BRANCH
+## BRANCH
 ---
 
 list branches
@@ -128,7 +128,7 @@ Deleting a branch
         git branch -D experiment # will allow you to lose changes
 
 
-### Remotes
+## Remotes
 ---
 - Which remote to use?
   - ``` https:// - HTTPS read-only and read/write ```
@@ -178,7 +178,7 @@ Deleting a branch
 
 
 
-### FORK
+## FORK
 ---
 
 1. via [github](http://www.github.com), fork project to your account (click "fork" button)
@@ -208,7 +208,7 @@ Deleting a branch
         git merge upstream/master
 
 
-### Models of collaborative development on GitHub
+## Models of collaborative development on GitHub
 ---
 
 - #### Fork & Pull
@@ -220,7 +220,7 @@ Deleting a branch
   >Pull requests are especially useful in the Fork & Pull Model because they provide a way to notify project maintainers about changes in your fork. However, they're also useful in the Shared Repository Model where they're used to initiate code review and general discussion about a set of changes before being merged into a mainline branch.
 
 
-### *Taking from* others users' repositories:
+## *Taking from* others users' repositories:
 ---
 
 - #### git clone
@@ -248,7 +248,7 @@ Deleting a branch
 
 
 
-### *Giving back* to others users' repositories:
+## *Giving back* to others users' repositories:
 ---
 
 - #### Push
@@ -267,13 +267,49 @@ Deleting a branch
   Check out [Using Pull Requests](https://help.github.com/articles/using-pull-requests) from the GitHub Help pages. For this action you must go to the [GitHub](http://www.github.com) itself.
 
 
+## Undo
+
+### Reset
+
+#### hard
+
+```
+git reset --hard
+```
+
+>hard makes everything match the commit you've reset to. This is the easiest to understand, probably. All of your local changes get clobbered. One primary use is blowing away your work but not switching commits: git reset --hard means git reset --hard HEAD, i.e. don't change the branch but get rid of all local changes. The other is simply moving a branch from one place to another, and keeping index/work tree in sync. This is the one that can really make you lose work, because it modifies your work tree. Be very very sure you want to throw away local work before you run any reset --hard.
+
+
+#### mixed
+
+```
+git reset --mixed
+```
+
+>mixed is the default. It resets the index, but not the work tree. This means all your files are intact, but any differences between the original commit and the one you reset to will show up as local modifications (or untracked files) with git status. Use this when you realize you made some bad commits, but you want to keep all the work you've done so you can fix it up and recommit. In order to commit, you'll have to add files to the index again (git add ...).
+
+#### soft
+
+```
+git reset --soft
+```
+
+>soft doesn't touch the index or work tree. All your files are intact as with --mixed, but all the changes show up as changes to be committed with git status (i.e. checked in in preparation for committing). Use this when you realize you've made some bad commits, but the work's all good - all you need to do is recommit it differently. The index is untouched, so you can commit immediately if you want - the resulting commit will have all the same content as where you were before you reset.
+
+#### merge
+
+```
+git reset --merge
+```
+>Merge was added recently, and is intended to help you abort a failed merge. This is necessary because git merge will actually let you attempt a merge with a dirty work tree (one with local modifications) as long as those modifications are in files unaffected by the merge. git reset --merge resets the index (like --mixed - all changes show up as local modifications), and resets the files affected by the merge, but leaves the others alone. This will hopefully restore everything to how it was before the bad merge. You'll usually use it as git reset --merge (meaning git reset --merge HEAD) because you only want to reset away the merge, not actually move the branch. (HEAD hasn't been updated yet, since the merge failed)
 
 
 
-### TROUBLESHOOTING:
+
+## TROUBLESHOOTING:
 ---
 
-- #### Resolving merge conflicts
+### Resolving merge conflicts
 
   **CAUSE:** Two branches have changed the same part of the same file, and then those branches are merged together. e.g. if you make a change on a particular line in a file, and your colleague working in a repository makes a change on the exact same line, a merge conflict occurs. Git has trouble understanding which change should be used, so it asks you to help out.
 
@@ -289,7 +325,7 @@ Deleting a branch
       b. commit the change
 
 
-- #### non-fast-forward errors
+### non-fast-forward errors
 
   ```
 $ git push origin master
@@ -310,11 +346,7 @@ $ git push origin master
   >*In some cases this error is a result of destructive changes made locally by using commands like ```git commit --amend``` or ```git rebase```. While you can override the remote by adding ```--force``` to the push command, you should only do so if you are absolutely certain this is what you want to do. Force-pushes can cause issues for other users that have fetched the remote branch, and is considered bad practice. When in doubt, don't force-push.*
 
 
-
-
-
-
-### REFERENCES
+## REFERENCES
 ---
 - [Git Emmersion](http://gitimmersion.com/)
 - [Learn Git Branching](http://pcottle.github.io/learnGitBranching/)
@@ -327,6 +359,7 @@ $ git push origin master
   - [Using Pull Requests](https://help.github.com/articles/using-pull-requests)
   - [Why is Git always asking for my password?](https://help.github.com/articles/why-is-git-always-asking-for-my-password)
 - StackOverflow
+  - [Can you explain what “git reset” does in plain english?](http://stackoverflow.com/questions/2530060/can-you-explain-what-git-reset-does-in-plain-english)
   - [Git push existing repo to a new and different remote repo server?](http://stackoverflow.com/questions/5181845/git-push-existing-repo-to-a-new-and-different-remote-repo-server)
   - [Import existing source code to github](http://stackoverflow.com/questions/4658606/import-existing-source-code-to-github)
   - [Move existing, uncommited work to a new branch in Git](http://stackoverflow.com/questions/1394797/move-existing-uncommited-work-to-a-new-branch-in-git)
