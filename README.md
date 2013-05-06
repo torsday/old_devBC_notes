@@ -4,7 +4,7 @@ Dev Bootcamp Notes
 ## To Do
 ---
 
-- HTML has AJAX & JS stuff which should be categorized elsewherr
+- HTML has AJAX & JS stuff which should be categorized elsewhere
 
 ## Schedule
 ---
