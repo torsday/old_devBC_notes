@@ -1,16 +1,19 @@
 # ActiveRecord
 ---
 
-## Rake commands
+## Rake Commands
 
-```$ rake db:drop```
-```$ rake db:create```
-```$ rake db:migrate```
-```$ rake db:seed```
+- ```$ rake console```
+- ```$ rake db:drop```
+- ```$ rake db:create```
+- ```$ rake db:migrate```
+- ```$ rake db:seed```
+- ```$ rake db:drop && rake db:create && rake db:migrate && rake db:seed
 
-## Creating a migration
+## Rake Generations
 
-```$ rake generate:migration NAME=the_name_of_your_migration```
+- ```$ rake generate:migration NAME=create_users```
+- ```$ rake generate:model NAME=user```
 
 ## Creating a table
 
