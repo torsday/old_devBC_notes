@@ -1,6 +1,8 @@
 Dev Bootcamp Notes
 ==================
 
+## Schedule
+
 **Stage I (Modeling)**
 - Week 01: Ruby
 - Week 02: OO Design
@@ -21,6 +23,9 @@ Dev Bootcamp Notes
 - Week 11: ?
 - Week 12: ?
 
+## Resources
+
+- [My Base Sinatra Skeleton](https://github.com/ctorstens/mSinSkel)
 
 
 
