@@ -1,4 +1,4 @@
-# ![LOGO](http://qaidjacobs.com/wp-content/uploads/2012/11/Git_icon.svg_.png) git
+# ![LOGO](http://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg)
 ---
 
 ## *Index*
