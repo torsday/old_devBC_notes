@@ -1,7 +1,13 @@
 Dev Bootcamp Notes
 ==================
 
+## To Do
+---
+
+- HTML has AJAX & JS stuff which should be categorized elsewherr
+
 ## Schedule
+---
 
 **Stage I (Modeling)**
 - Week 01: Ruby
