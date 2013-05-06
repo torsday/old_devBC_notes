@@ -8,7 +8,7 @@
   - Creating a new, local-only repo
   - Creating a github-based repo
   - [Moving a local-only repo into github](https://gist.github.com/ctorstens/5375420#creating-a-github-repo-from-a-pre-existing-local-repo)
-2. Basics
+1. Basics
   - Commit
   - [Branch](https://gist.github.com/ctorstens/5375420#branch)
 1. Taking from others users' repositories:
@@ -20,10 +20,10 @@
 1. Giving back to others users' repositories:
   - Push
   - Pull Requests
-2. [Remotes](https://gist.github.com/ctorstens/5375420#remotes)
-2. [Getting around Git](https://gist.github.com/ctorstens/5375420#getting-around-git)
+1. [Remotes](https://gist.github.com/ctorstens/5375420#remotes)
+1. [Getting around Git](https://gist.github.com/ctorstens/5375420#getting-around-git)
 1. [Undo](https://github.com/ctorstens/dev_bootcamp_notes/tree/master/git#undo)
-3. [Troubleshooting](https://github.com/ctorstens/dev_bootcamp_notes/tree/master/git#troubleshooting)
+1. [Troubleshooting](https://github.com/ctorstens/dev_bootcamp_notes/tree/master/git#troubleshooting)
 1. [References](https://gist.github.com/ctorstens/5375420#references)
 
 ## SETUP

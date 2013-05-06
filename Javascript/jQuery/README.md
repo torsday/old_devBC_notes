@@ -1,4 +1,4 @@
-# jQuery Notes
+# ![LOGO](http://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg)
 ---
 
 ## Event Basics
