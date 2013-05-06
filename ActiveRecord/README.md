@@ -2,7 +2,7 @@
 
 ## Creating a migration
 
-```rake generate:migration NAME=the_name_of_your_migration```
+```$ rake generate:migration NAME=the_name_of_your_migration```
 
 ## Creating a table
 
@@ -12,10 +12,8 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
-      t.string :user_name
       t.string :email
-      t.string :password_hash
-      t.string :perishable_token
+      t.string :password
 
       t.timestamps
     end
