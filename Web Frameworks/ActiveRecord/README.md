@@ -91,7 +91,9 @@ update_column
 update_counters
 ```
 
-## Creating a table
+## Tables
+
+### Creation
 
 ``` ruby
 class CreateUsers < ActiveRecord::Migration
@@ -107,7 +109,7 @@ class CreateUsers < ActiveRecord::Migration
 end
 ```
 
-## Adding to a table
+### Addition
 
 ``` ruby
 class AddUserNameToUsers < ActiveRecord::Migration
