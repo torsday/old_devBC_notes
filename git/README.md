@@ -1,4 +1,5 @@
-# GIT & GITHUB
+# ![LOGO](http://qaidjacobs.com/wp-content/uploads/2012/11/Git_icon.svg_.png) git
+---
 
 ## *Index*
 
@@ -21,20 +22,21 @@
   - Pull Requests
 2. [Remotes](https://gist.github.com/ctorstens/5375420#remotes)
 2. [Getting around Git](https://gist.github.com/ctorstens/5375420#getting-around-git)
-3. [Troubleshooting]()
+1. [Undo](https://github.com/ctorstens/dev_bootcamp_notes/tree/master/git#undo)
+3. [Troubleshooting](https://github.com/ctorstens/dev_bootcamp_notes/tree/master/git#troubleshooting)
 1. [References](https://gist.github.com/ctorstens/5375420#references)
 
 ## SETUP
 ---
-- #### Creating a new, local-only repo
+- ### Creating a new, local-only repo
   1. create the repo in the root directory of your project
   
     ``` git init ```
-- #### Creating a github-based repo
+- ### Creating a github-based repo
   1. Create a new repo at [github](https://github.com/repositories/new)
     * include a ```README``` and an appropriate ```.gitignore``` file
   2. CLONE the repo to your computer
-- #### Moving a local-only repo into github
+- ### Moving a local-only repo into github
   1. Create a new repo at [github](https://github.com/repositories/new)
   2. set your local repo to view the url from step one as remote
 
@@ -43,7 +45,7 @@
 
 
 ## BASICS
----
+
   * STATUS
   * ADD
   * COMMIT
@@ -54,6 +56,7 @@
 
 
 ## Getting Around Git
+
 - Finding the current status of your project
 
          git status
@@ -96,7 +99,7 @@
 
 
 ## BRANCH
----
+
 
 list branches
 
@@ -129,7 +132,7 @@ Deleting a branch
 
 
 ## Remotes
----
+
 - Which remote to use?
   - ``` https:// - HTTPS read-only and read/write ```
 
@@ -179,7 +182,6 @@ Deleting a branch
 
 
 ## FORK
----
 
 1. via [github](http://www.github.com), fork project to your account (click "fork" button)
 
@@ -209,7 +211,6 @@ Deleting a branch
 
 
 ## Models of collaborative development on GitHub
----
 
 - #### Fork & Pull
 >The Fork & Pull Model lets anyone fork an existing repository and push changes to their personal fork without requiring access be granted to the source repository. The changes must then be pulled into the source repository by the project maintainer. This model reduces the amount of friction for new contributors and is popular with open source projects because it allows people to work independently without upfront coordination.
@@ -221,9 +222,8 @@ Deleting a branch
 
 
 ## *Taking from* others users' repositories:
----
 
-- #### git clone
+- ### git clone
 *To grab a complete copy of another user's repository when you do not have a local copy of the repository already established:*
 
   Go to the appropriate github repository and copy and past the command, e.g...
@@ -233,25 +233,24 @@ Deleting a branch
 
 
 
-- #### git fetch
+- ### git fetch
   >If you already have a local repository with a remote set up for the desired project, you can grab all branches and tags for the existing remote using git fetch <REMOTENAME>. By default, git clone will create a remote named origin pointing to the URL you cloned from. Fetch does not make any changes to local branches, so you will need to merge a remote branch with a paired local branch to incorporate newly fetch changes.
 
-- #### git pull
+- ### git pull
   > Similar to git fetch, you can use git pull <REMOTENAME> <BRANCHNAME> to fetch a specific branch and merge it into your current local branch. For one-time pulls from other users' repos, you can use a URL in place of a remote name.
 
   >Because pull potentially performs a merge on the retrieved changes, you should ensure that your working tree and index are clean before running the pull command. If you run into a merge conflict you cannot resolve, or if you decide to abort the merge, you can use git merge --abort to take the branch back to the state it was in before you pulled.
 
 
 
-- #### git remote prune
+- ### git remote prune
   >Sometimes branches are deleted from an upstream repository, perhaps even by the recommendation of the user interface after a merged pull request. By default, git fetch will not remove any remote-tracking branches that have been deleted on the remote repo. Running git fetch --prune or git remote prune REMOTENAME will delete these tracking branches.
 
 
 
 ## *Giving back* to others users' repositories:
----
 
-- #### Push
+- ### Push
 *Publish commits from your repository into a remote for other users to view and potentially fetch*
 
   To push a local branch to an established remote:
@@ -261,7 +260,7 @@ Deleting a branch
 
       git push <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>
 
-- #### Pull Requests
+- ### Pull Requests
   *Pull requests let you tell others about changes you've pushed to a GitHub repository. Once a pull request is sent, interested parties can review the set of changes, discuss potential modifications, and even push follow-up commits if necessary.*
   
   Check out [Using Pull Requests](https://help.github.com/articles/using-pull-requests) from the GitHub Help pages. For this action you must go to the [GitHub](http://www.github.com) itself.
@@ -307,7 +306,6 @@ git reset --merge
 
 
 ## TROUBLESHOOTING:
----
 
 ### Resolving merge conflicts
 
