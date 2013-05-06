@@ -1,4 +1,12 @@
 # ActiveRecord
+---
+
+## Rake commands
+
+```$ rake db:drop```
+```$ rake db:create```
+```$ rake db:migrate```
+```$ rake db:seed```
 
 ## Creating a migration
 
