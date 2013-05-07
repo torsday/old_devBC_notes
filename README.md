@@ -5,6 +5,7 @@ Dev Bootcamp Notes
 ---
 
 - HTML has AJAX & JS stuff which should be categorized elsewhere
+- pSQL Commands
 
 ## Schedule
 ---

@@ -16,6 +16,9 @@ difference between two times is in seconds
   - While TIMESTAMP looks similar when you fetch it from the database, it's really a just a front for a unix timestamp. Its valid range goes from 1970 to 2038. 
 >The difference here, aside from the various built-in functions within the database engine, is storage space. Because DATETIME stores every digit in the year, month day, hour, minute and second, it uses up a total of 8 bytes. As TIMESTAMP only stores the number of seconds since 1970-01-01, it uses 4 bytes.
 
+## Misc
+
+
 
 ## References
 
