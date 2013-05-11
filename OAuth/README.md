@@ -48,6 +48,7 @@ ENV['TWITTER_KEY']
 
 
 ## Relevant Projects
+- [mSinSkel](https://github.com/ctorstens/mSinSkel)
 - [Tweet Now! 2: Multi-User](http://socrates.devbootcamp.com/challenges/375)
   - [Repo](https://github.com/Ryan5231/tweet_now_multiUser)
 
