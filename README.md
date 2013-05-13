@@ -1,4 +1,4 @@
-Dev Bootcamp Notes
+Dev Bootcamp Notes / Cheatsheets
 ==================
 
 ## To Do
@@ -34,6 +34,14 @@ Dev Bootcamp Notes
 
 - [My Base Sinatra Skeleton](https://github.com/ctorstens/mSinSkel)
 
+## Useful Github Projects
+- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+- [thoughbot/laptop](https://github.com/thoughtbot/laptop)
+
+
+## Useful Gems
+- [Bourbon](https://github.com/thoughtbot/bourbon)
+- [capybara](https://github.com/jnicklas/capybara)
 
 
 ## Orphaned References
