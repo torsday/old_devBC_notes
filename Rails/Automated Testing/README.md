@@ -102,7 +102,7 @@ FactoryGirl.define do
     site
     name 'Spatula City, Inc.'
     site_url 'test'
-    pitch 'We sell spatulas.. and that's all!'
+    pitch "We sell spatulas.. and that's all!"
     city 'Spatville'
     state 'OR'
     country 'United States'
@@ -220,11 +220,6 @@ end
 ```
 
 
-## Factory Girl
-
-
-
-
 
 ## References
 - Github
@@ -237,4 +232,4 @@ end
 - [Rails Testing — Demystifying Test-Unit](http://www.hiringthing.com/2012/08/02/rails-testing-demystifying-test-unit.html)
 - [Rails Testing — Factory Girl](http://www.hiringthing.com/2012/08/17/rails-testing-factory-girl.html)
 - StackOverflow
-    - [Factory Girl = What's the purpose?](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose)
+    - [Factory Girl - What's the purpose?](http://stackoverflow.com/questions/5183975/factory-girl-whats-the-purpose)
