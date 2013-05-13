@@ -28,7 +28,7 @@
 
 ## Unit Tests
 
-Unit tests are the bread and butter of testing. These little guys tell us that our code is operating as expected no matter what we throw at it. They are often closely paired to a model and follow a pattern like so:
+Unit tests make assertions that validate data going into a method and data coming out. They validate success as well as failure conditions. Essentially, they tell us that our code is operating as expected no matter what we throw at it. They are often closely paired to a model and follow a pattern like so:
 
 - /app/models/user.rb contains methods like:
     - def first_name
@@ -41,18 +41,6 @@ Unit tests are the bread and butter of testing. These little guys tell us that o
     - def test_last_name
     - def test_login
     - def test_password_reset
-
-Unit tests make assertions that validate data going into a method and data coming out. They validate success as well as failure conditions.
-
-
-### Integration Tests
-Integration tests take functional tests one step further by examining behavior across multiple controller actions.
-
-### Functional Tests
-Functional tests are written to validate the content returned by individual actions within your controllers and mailers.
-
-
-
 
 
 ## RSpec
@@ -287,8 +275,7 @@ Using seeds.rb to accomplish the work of fixtures (or vice versa) would be a mis
 
 
 ## Why Factory Girl?
-Factory Girl solves the worst problem of fixtures: **maintenance**. 
-Tests become much easier to maintain when you can request a model instance that is always **current**. Using Factory Girl, *a model is never bound to a particular phase of your application’s development*. They are dynamically loaded from the current state of your application. Were there new Customer attributes introduced in that last merge? No problem, Factory Girl already sees them. Not so the case with a directory of fixtures.
+
 
 
 
@@ -298,7 +285,11 @@ Tests become much easier to maintain when you can request a model instance that 
 ## Factory Girl
 
 ### Why Factory Girl?
-Before Factory Girl there were *fixtures*, which are fixed records loaded into the database. Factory Girl was created to create templates for valid and re-usable objects.  They allow more customization when you instantiate the objects and they aim to ensure that you have a valid object to work with. They can be used anywhere in your tests and in your before and after test hooks.
+Factory Girl solves the worst problem of fixtures: **maintenance**. 
+
+Tests become much easier to maintain when you can request a model instance that is always **current**. Using Factory Girl, *a model is never bound to a particular phase of your application’s development*. They are dynamically loaded from the current state of your application. Were there new Customer attributes introduced in that last merge? No problem, Factory Girl already sees them. Not so the case with a directory of fixtures.
+
+Factory Girl was created to create templates for valid and re-usable objects.  They allow more customization when you instantiate the objects and they aim to ensure that you have a valid object to work with. They can be used anywhere in your tests and in your before and after test hooks.
 
 Factories are aimed at creating valid Ruby objects and records, so that you can keep your object creation flexible and DRY. 
 
