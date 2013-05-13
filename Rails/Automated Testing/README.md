@@ -26,25 +26,6 @@
 
 
 
-## Fixtures
-
-
-Fixtures provide a means of loading serialized data from YAML files for testing purposes. Tests frequently involve creating instances of various objects, making assertions about their state, and drawing conclusions from there. With fixtures you don’t have to manually create a new object instance for each test. You can simply load a fixture and refer to its value like so:
-
-
-What they are:
-Fast to load
-Easy to generate from live data for later re-use
-Easy to read
-What they are not:
-Dynamic – you get the same values every time for better or worse
-Aware of change – if your model’s change your fixtures may become outdated and require manual updates before your tests will pass
-Why use fixtures when I can use seeds.rb?
-Using seeds.rb to accomplish the work of fixtures (or vice versa) would be a mistake as seeds.rb is designed for one purpose: to populate an empty database with essential data. To belabor the point, seeds.rb should be responsible for data so critical to your application that would be inoperable without it. For many applications it is likely you will need seeds.rb to setup your test database via rake db:test:prepare.
-What about using a factory?
-Don’t fret. We’ll talk about factories (or more specifically, FactoryGirl) and how they can provide much needed functionality in a coming post.
-
-
 ## Unit Tests
 
 Unit tests are the bread and butter of testing. These little guys tell us that our code is operating as expected no matter what we throw at it. They are often closely paired to a model and follow a pattern like so:
@@ -64,21 +45,253 @@ Unit tests are the bread and butter of testing. These little guys tell us that o
 Unit tests make assertions that validate data going into a method and data coming out. They validate success as well as failure conditions.
 
 
-## Integration Tests
+### Integration Tests
 Integration tests take functional tests one step further by examining behavior across multiple controller actions.
 
-## Functional Tests
-Functional tests are written to validate the content returned by individual actions within your controllers and mailers. Let’s look at some code.
+### Functional Tests
+Functional tests are written to validate the content returned by individual actions within your controllers and mailers.
 
-## Factory
-a factory is an object whose sole job is to create other objects.
+
+
+
+
+## RSpec
+
+##### refactoring_for_inheritance.rb
+``` ruby
+class MotorVehicle
+    attr_reader :color, :wheels
+    attr_accessor :status
+
+    def initialize(args)
+        @color = args[:color]
+        @wheels = args[:wheels]
+        post_initialize(args)
+    end
+
+    def post_initialize(args); nil; end
+
+    def brake
+        self.status = :stopped      
+    end
+end
+
+
+class Car < MotorVehicle
+
+    def post_initialize(args)
+        @wheels = 4
+        @status = :stopped
+    end
+
+    def drive
+        self.status = :driving
+    end
+
+    def needs_gas?
+        return [true,true,false].sample
+    end
+
+end
+
+
+class Bus < MotorVehicle
+    attr_reader :num_seats
+    attr_accessor :passengers, :fare
+
+    def post_initialize(args)
+        @wheels = args[:wheels]
+        @num_seats = args[:num_seats]
+        @fare = args[:fare]
+        @passengers=[]
+        @status = :stopped
+    end
+
+    def drive
+        return self.brake if stop_requested?
+        self.status = :driving
+    end
+
+    def admit_passenger(passenger,money)
+        self.passengers << passenger if money >= self.fare
+    end
+
+    def stop_requested?
+        return [true,false].sample
+    end
+
+    def needs_gas?
+        return [true,true,true,false].sample
+    end
+end
+
+
+class Motorbike < MotorVehicle
+
+    attr_accessor :speed
+
+    def post_initialize(args)
+        @wheels = 2
+    end
+
+    def drive
+        self.status = :driving
+        self.speed = :fast
+    end
+
+    def brake
+        self.status = :stopped 
+        self.speed = :none
+    end
+    def needs_gas?
+        return [true,false,false,false].sample
+    end 
+    def weave_through_traffic
+        self.status = :driving_like_a_crazy_person
+    end
+end
+```
+
+##### refactoring_for_inheritance_spec.rb
+``` ruby
+require_relative 'refactoring_for_inheritance'
+require 'rspec'
+
+describe Car do 
+
+  before :each do 
+    @the_car = Car.new({color: 'black'}) 
+  end
+
+  it "should drive" do
+    @the_car.drive
+    @the_car.status.should == :driving
+  end
+
+  it "should have wheels" do
+    @the_car.wheels.should == 4
+  end
+
+  it "should have a color" do
+    @the_car.color.should == 'black'
+  end
+
+  it "should brake" do
+    @the_car.brake
+    @the_car.status.should == :stopped
+  end
+
+  it "should have a gas status" do
+    [true,false].include?(@the_car.needs_gas?).should == true
+  end
+
+end
+
+describe Bus do 
+
+  before :each do
+    @the_bus = Bus.new({color: 'black', wheels: 8, num_seats: 50, fare: 5})
+  end
+
+  it "should have seats" do
+    @the_bus.num_seats.should == 50
+  end
+
+  it "should have a fare" do
+    @the_bus.fare.should == 5
+  end
+
+  it "should have & admit passengers" do
+    @the_bus.admit_passenger('John Smith', 5)
+    @the_bus.passengers.length.should == 1
+  end
+
+  it "should respond to stop requests" do
+    [true,false].include?(@the_bus.stop_requested?).should == true
+  end
+
+  # SHARED
+
+  it "should have a color" do
+    @the_bus.color.should == 'black'
+  end
+
+  it "should have wheels" do
+    @the_bus.wheels.should == 8
+  end
+
+  it "should brake" do
+    @the_bus.brake
+    @the_bus.status.should == :stopped
+  end
+
+  it "should have a gas status" do
+    [true,false].include?(@the_bus.needs_gas?).should == true
+  end
+
+end
+
+describe Motorbike do 
+
+  before :each do
+    @the_motorbike = Motorbike.new({color: 'black'})
+  end
+
+  it 'should have a speed' do
+    @the_motorbike.drive
+    @the_motorbike.speed.should == :fast
+  end
+
+  it 'should be able to weave through traffic' do
+    @the_motorbike.weave_through_traffic
+    @the_motorbike.status.should == :driving_like_a_crazy_person
+  end
+
+  it "should have a color" do
+    @the_motorbike.color.should == 'black'
+  end
+
+  it "should have wheels" do
+    @the_motorbike.wheels.should == 2
+  end
+
+  it "should brake" do
+    @the_motorbike.brake
+    @the_motorbike.status.should == :stopped
+  end
+
+  it "should have a gas status" do
+    [true,false].include?(@the_motorbike.needs_gas?).should == true
+  end
+
+end
+```
+
+
+## Fixtures
+Fixtures provide a means of loading serialized data from YAML files for testing purposes. Tests frequently involve creating instances of various objects, making assertions about their state, and drawing conclusions from there. With fixtures you don’t have to manually create a new object instance for each test. You can simply load a fixture and refer to its value like so:
+
+
+##### What they are:
+- Fast to load
+- Easy to generate from live data for later re-use
+- Easy to read
+
+##### What they are not:
+- Dynamic – you get the same values every time for better or worse
+- Aware of change – if your model’s change your fixtures may become outdated and require manual updates before your tests will pass
+
+##### Why use fixtures when I can use seeds.rb?
+Using seeds.rb to accomplish the work of fixtures (or vice versa) would be a mistake as seeds.rb is designed for one purpose: to populate an empty database with essential data. To belabor the point, seeds.rb should be responsible for data so critical to your application that would be inoperable without it. For many applications it is likely you will need seeds.rb to setup your test database via rake db:test:prepare.
+
+
 
 ## Why Factory Girl?
-The first (and possibly best) reason to use Factory Girl is because it solves the single worst problem of fixtures: maintenance. Tests become much easier to maintain when you can request a model instance that is always current. Using Factory Girl, a model is never bound to a particular phase of your application’s development. They are dynamically loaded from the current state of your application. Were there new Customer attributes introduced in that last merge? No problem, Factory Girl already sees them. Not so the case with a directory of fixtures.
+Factory Girl solves the worst problem of fixtures: **maintenance**. 
+Tests become much easier to maintain when you can request a model instance that is always **current**. Using Factory Girl, *a model is never bound to a particular phase of your application’s development*. They are dynamically loaded from the current state of your application. Were there new Customer attributes introduced in that last merge? No problem, Factory Girl already sees them. Not so the case with a directory of fixtures.
 
 
 
-Test-Unit has a large list of assertion matchers to help validate the behavior of a method. Tests providing coverage for crucial models (user.rb, for example) may have multiple (def test_xyz_fails_if_nil, def test_xyz_resets_some_value) methods target a single model attribute (def xyz).
 
 
 
@@ -152,7 +365,7 @@ Examples of what you can do with these factories
 # return a user instance that's not saved
 user = FactoryGirl.build(:user)
 
-# Returns a saved User instance
+# returns a saved User instance
 user = FactoryGirl.create(:user)
 
 # return a hash of attributes that can be used to build a User instance
