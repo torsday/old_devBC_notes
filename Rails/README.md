@@ -6,7 +6,7 @@
 #### Create a new app
 ``` rails new <name_of_project>```
 
-##### The created directory tree
+##### The created directory tree 
 
 ```
 .
