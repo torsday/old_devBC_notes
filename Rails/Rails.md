@@ -12,6 +12,16 @@
 rails new <app_name> -d postgresql -T
 ```
 
+#### Setup git repo
+
+```
+git init
+git add .
+git commit...
+```
+
+#### Rename/create README && Commit
+
 #### Setup GEMFILE
 
 ##### To allow rspec generation
@@ -147,7 +157,7 @@ The scaffold generator will build several files in your application, along with 
 
 ```
 $ rails generate scaffold User name:string email:string password_hash:string
-  
+
   invoke  active_record
   create    db/migrate/20130514014401_create_users.rb
   create    app/models/user.rb
@@ -212,7 +222,7 @@ $ rails new app_name --database=postgresql
 
   - sqlite by default, for postgres:
 
-#### config/database.yml 
+#### config/database.yml
 ``` ruby
 development:
   adapter: postgresql
@@ -288,7 +298,7 @@ end
 public/index.html
 ```
 
-### 8. Uncomment line 51 in config/routes.rb 
+### 8. Uncomment line 51 in config/routes.rb
 ``` ruby
 root :to => 'home#index' # was originally 'welcome#index'
 ```
