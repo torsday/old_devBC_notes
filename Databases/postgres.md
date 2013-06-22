@@ -12,6 +12,16 @@ $ psql <database-name>
 > \d
 ```
 
+### Show Table Structure
+```
+> \d <table-name>
+```
+
+### Basic statements
+```
+> select * from <table-name>
+```
+
 ### Help
 ```
 > help
