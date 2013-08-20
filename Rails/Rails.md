@@ -12,6 +12,10 @@
 rails new <app_name> -d postgresql -T
 ```
 
+```-d``` sets the type of database
+
+```-T``` prevents default test install
+
 #### Setup git repo
 
 ```

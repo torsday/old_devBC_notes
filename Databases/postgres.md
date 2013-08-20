@@ -2,27 +2,32 @@
 
 ## Basic Commands
 
-### Open up database
+#### Open up database
 ```
 $ psql <database-name>
 ```
 
-### List Tables
+#### List Tables
 ```
 > \d
 ```
 
-### Show Table Structure
+#### Show Table Structure
 ```
 > \d <table-name>
 ```
 
-### Basic statements
+#### Basic statements
 ```
 > select * from <table-name>
 ```
 
-### Help
+#### Quit
+```
+\q
+```
+
+#### Help
 ```
 > help
 ```

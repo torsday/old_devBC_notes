@@ -208,6 +208,19 @@ end
 ```
 
 
+## Customizing the query
+
+Associations are built from Relations, and you can use the Relation syntax to customize them. For example, to add a condition:
+
+```ruby
+classBlog<ActiveRecord::Base
+  has_many:published_posts, -> { wherepublished:true }, class_name:'Post'
+end
+```
+
+Inside the ```-> { ... }``` block you can use all of the usual Relation methods.
+
+
 
 
 ## References
