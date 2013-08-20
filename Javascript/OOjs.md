@@ -7,7 +7,7 @@
 
 Used to make a class from which to build instances.
 
-``` js
+```js
 function Animal (name, length) {
   this.name = name;
   this.length = length;
@@ -16,14 +16,14 @@ function Animal (name, length) {
 
 another way to write this:
 
-``` js
+```js
 var Animal = function (name, length) {
   this.name = name;
   this.length = length;
 }
 ```
 
-> [Neither are deprecated, and both will work. The difference here is that one is a named function ( function f() ) while the other is a variable equal to a function ( var f = function() ).](http://stackoverflow.com/questions/9423693/javascript-function-definition-syntax)
+[Neither are deprecated, and both will work. The difference here is that one is a named function ( ```function f()``` ) while the other is a variable equal to a function ( ```var f = function()``` ).](http://stackoverflow.com/questions/9423693/javascript-function-definition-syntax)
 
 #### Example Code
 ```js

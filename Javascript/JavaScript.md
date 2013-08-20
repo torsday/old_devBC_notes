@@ -1,13 +1,16 @@
 # Javascript / jQuery
 ---
 
-## Ajax
 
-## Functions
+## INBOX
 
-### draggable()
+### Ajax
 
-### droppable()
+### Functions
+
+#### draggable()
+
+#### droppable()
 
 
 
